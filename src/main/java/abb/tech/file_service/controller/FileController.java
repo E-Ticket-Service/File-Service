@@ -8,6 +8,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,6 +31,7 @@ public class FileController {
     }
 
     @GetMapping("/{uuid}")
+    @PreAuthorize("hasAuthority('USER')")
     public ResponseEntity<Resource> downloadFile(@PathVariable UUID uuid) throws IOException {
         File fileEntity = fileService.downloadFile(uuid);
         Path filePath = Paths.get(fileEntity.getFilePath());
