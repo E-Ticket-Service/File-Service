@@ -18,13 +18,14 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/files")
+@RequestMapping("/files")
 @RequiredArgsConstructor
 public class FileController {
 
     private final FileService fileService;
 
     @PostMapping("/upload")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<File> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         File fileEntity = fileService.uploadFile(file);
         return ResponseEntity.ok(fileEntity);
