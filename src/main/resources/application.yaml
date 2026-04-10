@@ -36,3 +36,12 @@ spring:
     consumer:
       group-id: ticket-service-group
       auto-offset-reset: earliest
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+    tags-sorter: alpha
