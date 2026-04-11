@@ -32,7 +32,7 @@ public class FileController {
     }
 
     @GetMapping("/{uuid}")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
     public ResponseEntity<Resource> downloadFile(@PathVariable UUID uuid) throws IOException {
         File fileEntity = fileService.downloadFile(uuid);
         Path filePath = Paths.get(fileEntity.getFilePath());
