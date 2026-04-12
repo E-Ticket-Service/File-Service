@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FileType {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
