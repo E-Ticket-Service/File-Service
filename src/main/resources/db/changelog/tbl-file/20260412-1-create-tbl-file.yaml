@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260412-1-create-tbl-file
+      author: nurlanaliyev
+      changes:
+        - createTable:
+            tableName: files
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: file_name
+                  type: varchar(255)
+              - column:
+                  name: file_path
+                  type: varchar(255)
+              - column:
+                  name: file_size
+                  type: int
+              - addForeignKeyConstraint:
+                  baseTableName: files
+                  baseColumnNames: file_extension_id
+                  referencedTableName: file_extensions
+                  referencedColumnNames: id
+                  constraintName: fk_files_file_extension
+
+              - addForeignKeyConstraint:
+                  baseTableName: files
+                  baseColumnNames: file_type_id
+                  referencedTableName: file_types
+                  referencedColumnNames: id
+                  constraintName: fk_files_file_type

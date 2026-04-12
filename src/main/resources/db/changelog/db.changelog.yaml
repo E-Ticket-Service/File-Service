@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/tbl-file
+  - includeAll:
+      path: db/changelog/tbl-fileExtension
+  - includeAll:
+      path: db/changelog/tbl-fileType

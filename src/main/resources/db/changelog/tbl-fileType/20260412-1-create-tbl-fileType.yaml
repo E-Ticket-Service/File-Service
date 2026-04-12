@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260412-1-create-tbl-fileType
+      author: nurlanaliyev
+      changes:
+        - createTable:
+            tableName: file_types
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)

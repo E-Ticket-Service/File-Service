@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260412-1-create-tbl-fileExtension
+      author: nurlanaliyev
+      changes:
+        - createTable:
+            tableName: file_extensions
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: extension
+                  type: varchar(255)
